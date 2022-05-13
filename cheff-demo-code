@@ -1,0 +1,29 @@
+#Demo code for chef lab
+
+# creating a file
+file '/myfile' do
+content 'This is chef lab day 3'
+action :create
+end
+
+
+
+#running a linux command in ruby code
+execute 'run a script' do
+command <<-EOH
+mkdir /gulshan
+touch /gulshan
+EOH
+end
+
+# creating a new user in chef
+user 'gulshan' do
+action :create
+end
+
+#creting a new group and adding existing member
+group 'devops' do
+action :create
+members 'gulshan'
+append true
+end
